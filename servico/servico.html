@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="ISO-8859-1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="angular.js" type="text/javascript"></script>
+    </head>
+    <body ng-app="NRFAPP">
+        <div ng-controller="Control as ct">
+            
+            
+            
+        </div>
+        <script src="services.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            
+            var app = angular.module('NRFAPP', ['NRFAPP.services'])
+                    .controller('Control',function($scope,servicoNRF){
+                      alert(servicoNRF.getResposta())
+                    });
+            
+        </script>    
+    </body>
+</html>

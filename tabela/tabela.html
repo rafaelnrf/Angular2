@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="angular.js" type="text/javascript"></script>
+    </head>
+    <body ng-app="NRFAPP">
+        <div ng-controller="Control as ct">
+            
+            <table width="100%">
+                
+                <thead>
+                    
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Cidade</th>
+                        <th>País</th>
+                    </tr>
+                    
+                </thead>    
+                
+                <tbody ng-repeat="x in clientes">
+                    
+                    <tr>
+                        <td>{{x.Name}}</td>
+                        <td>{{x.City}}</td>
+                        <td>{{x.Country}}</td>
+                    </tr>
+                    
+                </tbody>
+                
+                
+            </table>    
+            
+        </div>
+        <script type="text/javascript">
+            
+            var app = angular.module('NRFAPP', [])
+                    .controller('Control',function($scope,$http){
+                     
+                        $http.get("customers.php").then(function (response) {
+                            $scope.clientes = response.data.records;
+                        });
+                    });
+            
+        </script>    
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="ISO-8859-1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    </head>
+    <body ng-app="NRFAPP">
+        <div ng-controller="Control as ct">
+            
+            
+            <input type="text" name="teste" ng-model="teste" ng-change="exibeAlerta()"/>
+            
+        </div>
+        <script type="text/javascript">
+            
+            var app = angular.module('NRFAPP', [])
+                    .controller('Control',function($scope,$http){
+                            
+                           $http({
+                                method: 'get', 
+                                url: 'http://ergast.com/api/f1/2013/driverStandings.json?callback=JSON_CALLBACK'
+                            }).then(function mySuccess(response) {
+                                alert('sucesso')
+                            }, function myError(response) {
+                                alert('erro')
+                            });
+                            
+                    });
+            
+        </script>    
+    </body>
+</html>
